@@ -3,10 +3,11 @@ services: docker
 
 before_script:
   - env | sort
-  - repo="arpitjindal1997/TelegramAircelBot"
+  - repo="arpitjindal1997/telegram-aircel-bot"
   - image="$repo:latest"
 
 script:
+  - mvn clean package
   - docker build -t $image .
 
 after_script:
