@@ -6,4 +6,5 @@ RUN apt-get update \
 RUN mkdir /arpit
 COPY . /arpit/
 
+RUN chmod +x /arpit/entrypoint.sh
 ENTRYPOINT /arpit/entrypoint.sh
