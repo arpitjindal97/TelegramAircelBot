@@ -21,7 +21,7 @@ public class MyAmtBot extends TelegramLongPollingBot
             String message_text = update.getMessage().getText();
             long chat_id = update.getMessage().getChatId();
 
-            //send("Opening AMT", chat_id);
+            send("Processing ...", chat_id);
 
             message_text = Amt.getDetails(message_text);
 
