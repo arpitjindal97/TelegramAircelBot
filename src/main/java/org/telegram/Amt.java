@@ -83,7 +83,7 @@ public class Amt
             {
                 e.printStackTrace();
             }
-            log.info("Log in Success");
+            log.info("Log in button clicked");
 
             driver.switchTo().defaultContent();
 
@@ -91,6 +91,7 @@ public class Amt
             {
                 wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
                 driver.findElement(By.id("LinkButton1")).click();
+                log.info("Log in Success");
             } catch (Exception e)
             {
                 log.warn("Already sign in page missed");
