@@ -94,8 +94,17 @@ public class Amt
             {
                 log.warn("Already sign in page missed");
             }
-
-            wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
+            try
+            {
+                wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
+            }
+            catch(Exception rfrf)
+            {
+                log.info("btnSearch not found");
+                wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
+                log.info("alreay login page reappeared");
+                driver.findElement(By.id("LinkButton1")).click();
+            }
             driver.findElement(By.name("txtSearch")).sendKeys(num);
             driver.findElement(By.name("btnSearch")).click();
             List<WebElement> list = null, heads = null;
