@@ -75,6 +75,7 @@ public class Amt
 
                     type(Database.amt_password.charAt(i));
                 }
+
                 doType(VK_ENTER);
                 Thread.sleep(200);
 
