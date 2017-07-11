@@ -72,7 +72,6 @@ public class Amt
                 int code = 0;
                 for (int i = 0; i < Database.amt_password.length(); i++)
                 {
-
                     type(Database.amt_password.charAt(i));
                 }
 
@@ -107,6 +106,7 @@ public class Amt
                 log.info("alreay login page reappeared");
                 driver.findElement(By.id("LinkButton1")).click();
             }
+            wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
             driver.findElement(By.name("txtSearch")).sendKeys(num);
             driver.findElement(By.name("btnSearch")).click();
             List<WebElement> list = null, heads = null;
