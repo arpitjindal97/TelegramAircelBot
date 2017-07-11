@@ -90,10 +90,10 @@ public class Amt
             {
                 wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
                 driver.findElement(By.id("LinkButton1")).click();
-                log.info("Log in Success");
+                log.info("\"Please Click here\" Clicked");
             } catch (Exception e)
             {
-                log.warn("Already sign in page missed");
+                log.warn("\"Please Click here\" page missed");
             }
             try
             {
@@ -103,7 +103,7 @@ public class Amt
             {
                 log.info("btnSearch not found");
                 wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
-                log.info("alreay login page reappeared");
+                log.info("\"Please Click here\" page reappeared");
                 driver.findElement(By.id("LinkButton1")).click();
             }
             wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
