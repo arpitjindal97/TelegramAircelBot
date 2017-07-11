@@ -95,16 +95,19 @@ public class Amt
             {
                 log.warn("\"Please Click here\" page missed");
             }
-            try
+            while (true)
             {
-                wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
-            }
-            catch(Exception rfrf)
-            {
-                log.info("btnSearch not found");
-                wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
-                log.info("\"Please Click here\" page reappeared");
-                driver.findElement(By.id("LinkButton1")).click();
+                try
+                {
+                    wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
+                    break;
+                } catch (Exception rfrf)
+                {
+                    log.info("btnSearch not found");
+                    wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
+                    log.info("\"Please Click here\" page reappeared");
+                    driver.findElement(By.id("LinkButton1")).click();
+                }
             }
             wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
             driver.findElement(By.name("txtSearch")).sendKeys(num);
