@@ -50,7 +50,7 @@ public class Amt
             driver = new FirefoxDriver();
             driver.manage().deleteAllCookies();
 
-            wait = new WebDriverWait(driver, 15);
+            wait = new WebDriverWait(driver, 10);
             log.info("Opening AMT");
             driver.navigate().to("https://" + //Database.amt_username+":"+ Database.amt_password+"@" +
                     "amt.aircel.co.in/AMTIDAM/Default.aspx");
