@@ -7,4 +7,5 @@ RUN mkdir /arpit
 COPY . /arpit/
 
 RUN chmod +x /arpit/entrypoint.sh
-ENTRYPOINT ["/arpit/entrypoint.sh"]
+CMD bash /arpit/entrypoint.sh
+#ENTRYPOINT ["/arpit/entrypoint.sh"]
