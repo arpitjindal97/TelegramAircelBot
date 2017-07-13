@@ -58,7 +58,8 @@ public class WebController extends Thread
 
     public static void startServer()
     {
-        int port = 5000;
+        int port = Integer.parseInt(System.getenv("PORT"));
+
         try
         {
             Thread t = new WebController(port);
