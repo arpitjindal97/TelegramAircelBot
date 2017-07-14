@@ -18,7 +18,7 @@ public class WebController extends Thread
     public WebController(int port) throws IOException
     {
         serverSocket = new ServerSocket(port);
-        serverSocket.setSoTimeout(10000);
+        serverSocket.setSoTimeout(0);
     }
 
     public void run()
