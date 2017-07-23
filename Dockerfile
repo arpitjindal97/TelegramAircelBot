@@ -6,6 +6,10 @@ RUN apt-get update \
 RUN mkdir /arpit
 COPY . /arpit/
 
+RUN wget $(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep -e browser_download_url | grep linux64 | cut -d '"' -f 4)
+RUN tar -xzvf geckodriver-*-linux64.tar.gz
+RUN cp geckodriver /arpit/
+
 RUN chmod +x /arpit/entrypoint.sh
 CMD bash /arpit/entrypoint.sh
 #ENTRYPOINT ["/arpit/entrypoint.sh"]
