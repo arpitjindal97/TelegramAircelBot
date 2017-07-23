@@ -1,7 +1,10 @@
 FROM openjdk:latest
 
+RUN echo 'deb http://mozilla.debian.net/ jessie-backports firefox-release' >> /etc/apt/sources.list.d/debian-mozilla.list
+RUN wget mozilla.debian.net/pkg-mozilla-archive-keyring_1.1_all.deb
+RUN dpkg -i pkg-mozilla-archive-keyring_1.1_all.deb
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends firefox-esr xvfb 
+	&& apt-get install -y --no-install-recommends firefox xvfb 
 
 RUN mkdir /arpit
 COPY . /arpit/
