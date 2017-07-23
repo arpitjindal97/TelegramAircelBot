@@ -20,7 +20,6 @@ public class Amt
 {
 
     //static ChromeDriver driver;
-    static FirefoxDriver driver;
     static WebDriverWait wait;
     static Robot robot;
 
@@ -36,6 +35,7 @@ public class Amt
 
     public static String getDetails(String num)
     {
+        FirefoxDriver driver=null;
         log.info("Message Recieved : " + num);
         String res = "";
         try
@@ -43,7 +43,7 @@ public class Amt
             driver = new FirefoxDriver();
             driver.manage().deleteAllCookies();
 
-            wait = new WebDriverWait(driver, 15);
+            wait = new WebDriverWait(driver, 10);
             log.info("Opening AMT");
             driver.navigate().to("https://" + //Database.amt_username+":"+ Database.amt_password+"@" +
                     "amt.aircel.co.in/AMTIDAM/Default.aspx");
@@ -94,6 +94,9 @@ public class Amt
                 try
                 {
                     wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
+                    driver.findElement(By.name("txtSearch")).sendKeys(num);
+                    driver.findElement(By.name("btnSearch")).click();
+                    wait.until(ExpectedConditions.elementToBeClickable(By.id("grvCEFPending_ctl02_lnkMSISDN")));
                     break;
                 } catch (Exception rfrf)
                 {
@@ -103,9 +106,7 @@ public class Amt
                     driver.findElement(By.id("LinkButton1")).click();
                 }
             }
-            wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
-            driver.findElement(By.name("txtSearch")).sendKeys(num);
-            driver.findElement(By.name("btnSearch")).click();
+            
             List<WebElement> list = null, heads = null;
             try
             {
@@ -168,7 +169,12 @@ public class Amt
         } finally
         {
             log.info("Closing browser");
-            driver.quit();
+            while(driver.getWindowHandles().size() > 1)
+            {
+                driver.close();
+                driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
+            }
+            driver.close();
         }
         return res;
     }
