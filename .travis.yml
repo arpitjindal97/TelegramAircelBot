@@ -16,5 +16,4 @@ after_script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - docker push $repo
   - docker login --username=_ --password="$heroku_auth_token" registry.heroku.com
-  - docker tag $image $heroku_repo
-  - docker push $heroku_repo 
+  - docker tag $image $heroku_repo 

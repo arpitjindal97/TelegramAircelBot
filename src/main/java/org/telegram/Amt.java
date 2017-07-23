@@ -43,12 +43,12 @@ public class Amt
             driver = new FirefoxDriver();
             driver.manage().deleteAllCookies();
 
-            wait = new WebDriverWait(driver, 10);
+            wait = new WebDriverWait(driver, 15);
             log.info("Opening AMT");
             driver.navigate().to("https://" + //Database.amt_username+":"+ Database.amt_password+"@" +
                     "amt.aircel.co.in/AMTIDAM/Default.aspx");
 
-            log.info("Switched to Alert Box");
+            log.info("Switching to Alert Box");
             Alert alert = driver.switchTo().alert();
 
             log.info("Switched to alert box");
@@ -114,6 +114,7 @@ public class Amt
                 heads = driver.findElements(By.className("grid_Head"));
             } catch (Exception hdbj)
             {
+                hdbj.printStackTrace();
                 return "not";
             }
             List<String> values = new ArrayList<String>();
