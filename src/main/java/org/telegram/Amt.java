@@ -106,7 +106,7 @@ public class Amt
                     driver.findElement(By.id("LinkButton1")).click();
                 }
             }
-            
+
             List<WebElement> list = null, heads = null;
             try
             {
@@ -174,7 +174,7 @@ public class Amt
                 driver.close();
                 driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
             }
-            driver.close();
+            driver.quit();
         }
         return res;
     }
