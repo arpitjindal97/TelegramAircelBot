@@ -13,5 +13,5 @@ RUN tar -xzvf geckodriver-*-linux64.tar.gz
 RUN cp geckodriver /arpit/
 
 RUN chmod +x /arpit/entrypoint.sh
-CMD bash /arpit/entrypoint.sh
-#ENTRYPOINT ["/arpit/entrypoint.sh"]
+#CMD bash /arpit/entrypoint.sh
+ENTRYPOINT ["/arpit/entrypoint.sh"]

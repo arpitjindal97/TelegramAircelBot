@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,7 +106,8 @@ public class Amt
                         wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
                     } catch (Exception ef)
                     {
-                        throw new IOException();
+                        res="not";
+                        return res;
                     }
                     log.info("\"Please Click here\" page reappeared");
                     driver.findElement(By.id("LinkButton1")).click();
@@ -123,7 +123,8 @@ public class Amt
             } catch (Exception hdbj)
             {
                 hdbj.printStackTrace();
-                return "not";
+                res="not";
+                return res;
             }
             List<String> values = new ArrayList<String>();
 
@@ -170,20 +171,20 @@ public class Amt
 
         } catch (Exception ee)
         {
-            ee.printStackTrace();
             log.error("Invalid AMT user or pass");
             res = "not";
         } finally
         {
             log.info("Closing browser");
-            while (driver.getWindowHandles().size() > 1)
+            /*while (driver.getWindowHandles().size() > 1)
             {
                 driver.close();
                 driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
-            }
+            }*/
             driver.quit();
+            log.info("reached here");
+            return res;
         }
-        return res;
     }
 
     public static String short_this(String str)
