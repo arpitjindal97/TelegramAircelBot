@@ -182,7 +182,6 @@ public class Amt
                 driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
             }*/
             driver.quit();
-            log.info("reached here");
             return res;
         }
     }

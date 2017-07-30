@@ -8,17 +8,21 @@
 	<artifactId>botapi</artifactId>
 	<version>2.1</version>
 	<packaging>jar</packaging>
-
-
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<httpcompontents.version>4.5.3</httpcompontents.version>
-		<telegrambots.version>3.1.0</telegrambots.version>
-		<json.version>20160810</json.version>
-		<jsoup.version>1.10.2</jsoup.version>
+		<telegrambots.version>3.2</telegrambots.version>
+		<json.version>20170516</json.version>
 		<commonsio.version>2.5</commonsio.version>
+		<selenium.java.version>3.4.0</selenium.java.version>
+		<jackson.core.version>2.9.0.pr4</jackson.core.version>
+		<slf4j.log4j12.version>1.8.0-alpha2</slf4j.log4j12.version>
+		<maven.compiler.plugin>3.6.1</maven.compiler.plugin>
+		<maven.clean.plugin>3.0.0</maven.clean.plugin>
+		<maven.jar.plugin>3.0.2</maven.jar.plugin>
+		<maven.shade.plugin>3.0.0</maven.shade.plugin>
 	</properties>
 
 	<dependencies>
@@ -52,21 +56,21 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.9.0.pr4</version>
+			<version>${jackson.core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.4.0</version>
-			<exclusions><!--
-				<exclusion>
-					<groupId>org.seleniumhq.selenium</groupId>
-					<artifactId>selenium-firefox-driver</artifactId>
-				</exclusion>-->
+			<version>${selenium.java.version}</version>
+			<exclusions>
 
 				<exclusion>
 					<groupId>org.seleniumhq.selenium</groupId>
 					<artifactId>selenium-ie-driver</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.seleniumhq.selenium</groupId>
+					<artifactId>selenium-chrome-driver</artifactId>
 				</exclusion>
 				<exclusion>
 					<groupId>org.seleniumhq.selenium</groupId>
@@ -86,12 +90,12 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.8.0-alpha2</version>
+			<version>${slf4j.log4j12.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.8.0-alpha2</version>
+			<version>${slf4j.log4j12.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -100,8 +104,8 @@
 		<plugins>
 
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
+				<version>${maven.shade.plugin}</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -112,8 +116,8 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.plugin}</version>
 				<configuration>
 					<archive>
 						<manifest>
@@ -123,33 +127,10 @@
 					<outputDirectory>deployments</outputDirectory>
 				</configuration>
 			</plugin>
-			<!--<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>deployments</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.1.0</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<outputDirectory>deployments</outputDirectory>
-				</configuration>
-			</plugin>-->
 
 			<plugin>
 				<artifactId>maven-clean-plugin</artifactId>
+				<version>${maven.clean.plugin}</version>
 				<executions>
 					<execution>
 						<id>after-package</id>
@@ -190,8 +171,8 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin}</version>
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
