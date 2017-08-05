@@ -50,7 +50,6 @@ public class Amt
 
             log.info("Switching to Alert Box");
             Alert alert = driver.switchTo().alert();
-
             log.info("Switched to alert box");
             try
             {
@@ -69,6 +68,7 @@ public class Amt
                     type(Database.amt_password.charAt(i));
                 }
 
+                //Thread.sleep(10000);
                 doType(VK_ENTER);
                 Thread.sleep(200);
 

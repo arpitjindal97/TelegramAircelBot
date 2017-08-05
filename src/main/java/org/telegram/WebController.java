@@ -58,7 +58,7 @@ public class WebController extends Thread
 
     public static void startServer()
     {
-        int port = Integer.parseInt(System.getenv("PORT"));
+        int port = 5000;//Integer.parseInt(System.getenv("PORT"));
 
         try
         {
