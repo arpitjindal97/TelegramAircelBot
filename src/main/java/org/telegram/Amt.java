@@ -153,12 +153,17 @@ public class Amt
             driver.findElement(By.id("grvCEFPending_ctl02_lnkMSISDN")).click();
             wait.until(ExpectedConditions.elementToBeClickable(By.id("cbActView")));
             driver.findElement(By.id("cbActView")).click();
+
             wait.until(ExpectedConditions.elementToBeClickable(By.id("lnkCEFForm")));
             driver.findElement(By.id("lnkCEFForm")).click();
-            ;
+
             Thread.sleep(1000);
 
             ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+
+            String temp = driver.findElement(By.id("txtAddress")).getText();
+            res += "Address : "+temp;
+            
             driver.switchTo().window(tabs2.get(1));
             wait.until(ExpectedConditions.elementToBeClickable(By.id("btnCancel")));
 
@@ -166,13 +171,28 @@ public class Amt
 
             log.info(res);
 
-            res = res + "Date : " + date;
+            res = res + "\nDate : " + date;
+
+            temp = driver.findElement(By.name("txtSubscriberFirstName")).getAttribute("value") + " "
+                    + driver.findElement(By.name("txtSubscriberMiddleName")).getAttribute("value") + " "
+                    + driver.findElement(By.name("txtSubscriberLastName")).getAttribute("value");
+            temp = temp.trim();
+
+            res =res+"\nName : "+temp;
+            temp = driver.findElement(By.name("txtFatherHusbandName")).getAttribute("value");
+            res += "\nFather Name : "+temp;
+            temp = driver.findElement(By.name("txtPOINo")).getAttribute("value");
+            res += "\nPOI No : "+temp;
+            temp = driver.findElement(By.name("txtDOB")).getAttribute("value");
+            res +="\nDOB : "+temp;
+
             log.info(res);
 
         } catch (Exception ee)
         {
             log.error("Invalid AMT user or pass");
             res = "not";
+            ee.printStackTrace();
         } finally
         {
             log.info("Closing browser");

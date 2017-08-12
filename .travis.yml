@@ -1,17 +1,15 @@
 language: java
 services: docker
 before_install:
-- sudo apt-get -qq update
 - gem install capistrano
 before_script:
 - env | sort
-- repo="arpitjindal1997/telegram-aircel-bot"
-- image="$repo:latest"
+- image="arpitjindal1997/telegram-aircel-bot:latest"
 script:
 - mvn clean package
 - docker build -t $image .
 after_script:
 - docker images
 - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-- docker push $repo
+- docker push $image
 - cap production deploy
