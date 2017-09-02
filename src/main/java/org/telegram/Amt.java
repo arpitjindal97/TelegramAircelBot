@@ -103,7 +103,7 @@ public class Amt
                     log.info("btnSearch not found");
                     try
                     {
-                        log.info(driver.getPageSource());
+                        //log.info(driver.getPageSource());
                         if(driver.getPageSource().contains("No Record Found"))
                         {
                             res="No Record Found";
