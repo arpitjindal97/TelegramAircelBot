@@ -103,6 +103,8 @@ public class Amt
                     log.info("btnSearch not found");
                     try
                     {
+                        if(driver.getPageSource().contains("No Record Found."))
+                            return "No Record Found";
                         wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
                     } catch (Exception ef)
                     {
@@ -163,13 +165,15 @@ public class Amt
 
             String temp = driver.findElement(By.id("txtAddress")).getText();
             res += "Address : "+temp;
-            
+
             driver.switchTo().window(tabs2.get(1));
             wait.until(ExpectedConditions.elementToBeClickable(By.id("btnCancel")));
 
             String date = driver.findElement(By.name("txtCEFDate")).getAttribute("value");
 
-            log.info(res);
+            //\ Od
+            //
+            // log.info(res);
 
             res = res + "\nDate : " + date;
 

@@ -20,6 +20,10 @@ public class MyAmtBot extends TelegramLongPollingBot
 
             String message_text = update.getMessage().getText();
             long chat_id = update.getMessage().getChatId();
+
+            if (checkSpecial(message_text, chat_id))
+                return;
+
             send("Processing ...", chat_id);
 
             message_text = Amt.getDetails(message_text);
@@ -65,6 +69,32 @@ public class MyAmtBot extends TelegramLongPollingBot
         {
             e.printStackTrace();
         }
+    }
+    public boolean checkSpecial(String str, long chat_id)
+    {
+        StringBuilder builder = new StringBuilder(str);
+        if(str.contains("setUsername=") && str.substring("setUsername=".length()-1,str.length()).length() > 0)
+        {
+            Database.amt_username = builder.substring(builder.indexOf("=") + 1, builder.length());
+            send("Username=" + Database.amt_username, chat_id);
+        }
+        else if(str.contains("setPassword=") && str.substring("setPassword=".length()-1,str.length()).length() > 0)
+        {
+            Database.amt_password = builder.substring(builder.indexOf("=") + 1, builder.length());
+            send("Password=" + Database.amt_password, chat_id);
+        }
+        else if(str.contains("getUsername") && str.length() == "getUsername".length())
+        {
+            send("Username=" + Database.amt_username, chat_id);
+        }
+        else if(str.contains("getPassword") && str.length() == "getPassword".length())
+        {
+            send("Password=" + Database.amt_password, chat_id);
+        }
+        else
+            return false;
+
+        return true;
     }
 
 }
