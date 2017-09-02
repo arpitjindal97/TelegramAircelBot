@@ -103,8 +103,12 @@ public class Amt
                     log.info("btnSearch not found");
                     try
                     {
-                        if(driver.getPageSource().contains("No Record Found."))
-                            return "No Record Found";
+                        log.info(driver.getPageSource());
+                        if(driver.getPageSource().contains("No Record Found"))
+                        {
+                            res="No Record Found";
+                            return res;
+                        }
                         wait.until(ExpectedConditions.elementToBeClickable(By.id("LinkButton1")));
                     } catch (Exception ef)
                     {
@@ -132,7 +136,8 @@ public class Amt
 
             if (list == null)
             {
-                res = ("No Records Found");
+                //won't reach here
+                res = "No Records Found";
                 return res;
             }
             int i;
