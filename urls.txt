@@ -1,0 +1,4 @@
+https://bitbucket.org/arpitjindal97/secrets/raw/master/docker.sh
+https://bitbucket.org/arpitjindal97/secrets/raw/master/aircel-amt.sh
+https://bitbucket.org/arpitjindal97/secrets/raw/master/server-1.sh
+https://bitbucket.org/arpitjindal97/secrets/raw/master/server-1-ssh.key

@@ -1,15 +1,18 @@
 language: java
 services: docker
 before_install:
-- gem install capistrano
+        - gem install capistrano
 before_script:
-- env | sort
-- image="arpitjindal1997/telegram-aircel-bot:latest"
+        - env | sort
+        - mkdir secrets && cd secrets
+        - wget --user="$BITBUCKET_EMAIL" --password="$BITBUCKET_PASS" -i ../urls.txt
+        - ls -alh && eval $(cat *.sh) && cd ..
+        - image="$DOCKER_IMG"
 script:
-- mvn clean package
-- docker build -t $image .
+        - mvn clean package
+        - docker build -t $image .
 after_script:
-- docker images
-- docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-- docker push $image
-- cap production deploy
+        - docker images
+        - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+        - docker push $image
+        - cap production deploy
