@@ -6,7 +6,7 @@ before_script:
         - env | sort
         - mkdir secrets && cd secrets
         - wget --user="$BITBUCKET_EMAIL" --password="$BITBUCKET_PASS" -i ../urls.txt
-        - ls -alh && eval $(cat *.sh) && cd ..
+        - ls -alh && eval "$(cat *.sh)" && cd ..
         - image="$DOCKER_IMG"
 script:
         - mvn clean package
