@@ -1,4 +1,4 @@
-package org.telegram;
+package com.arpit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +7,6 @@ import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
 
-import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 
@@ -38,15 +37,5 @@ public class Main
             e.printStackTrace();
         }
 
-        log.info("Fetching details from database.json");
-        try
-        {
-            Database.getDetails();
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        WebController.startServer();
     }
 }

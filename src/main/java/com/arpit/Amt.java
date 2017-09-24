@@ -1,4 +1,4 @@
-package org.telegram;
+package com.arpit;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;

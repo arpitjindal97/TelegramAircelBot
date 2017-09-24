@@ -121,7 +121,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>org.telegram.Main</mainClass>
+							<mainClass>com.arpit.Main</mainClass>
 						</manifest>
 					</archive>
 					<outputDirectory>deployments</outputDirectory>

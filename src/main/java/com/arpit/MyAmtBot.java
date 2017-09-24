@@ -1,4 +1,4 @@
-package org.telegram;
+package com.arpit;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,7 +54,7 @@ public class MyAmtBot extends TelegramLongPollingBot
     public String getBotToken()
     {
         // Return bot token from BotFather
-        return "407376581:AAHn8WqQ2MEalHl-DNAGdloslbvXL866kmw";
+        return Database.telegram_token;
     }
 
     public void send(String message_text, long chat_id)
