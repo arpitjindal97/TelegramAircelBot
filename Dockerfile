@@ -7,7 +7,7 @@ RUN mkdir /arpit
 COPY . /arpit/
 
 RUN wget -O geckodriver.tar.gz \
-	$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/6998290 | grep  browser_download_url | grep linux64 | cut -d '"' -f 4)
+	$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/6664074 | grep  browser_download_url | grep linux64 | cut -d '"' -f 4)
 
 RUN tar -xzvf geckodriver.tar.gz
 RUN cp geckodriver /arpit/
