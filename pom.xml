@@ -16,7 +16,7 @@
 		<telegrambots.version>3.3</telegrambots.version>
 		<json.version>20170516</json.version>
 		<commonsio.version>2.5</commonsio.version>
-		<selenium.java.version>3.5.3</selenium.java.version>
+		<selenium.java.version>3.6.0</selenium.java.version>
 		<jackson.core.version>2.9.0</jackson.core.version>
 		<slf4j.log4j12.version>1.8.0-alpha2</slf4j.log4j12.version>
 		<maven.compiler.plugin>3.6.2</maven.compiler.plugin>

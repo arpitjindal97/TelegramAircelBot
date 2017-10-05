@@ -205,11 +205,11 @@ public class Amt
         } finally
         {
             log.info("Closing browser");
-            while (driver.getWindowHandles().size() > 1)
+            /*while (driver.getWindowHandles().size() > 1)
             {
                 driver.close();
                 driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
-            }
+            }*/
             //driver.close();
             driver.quit();
             return res;
