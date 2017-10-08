@@ -4,7 +4,8 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends iceweasel xvfb 
 
 RUN mkdir /arpit
-ADD deployments /arpit/
+RUN mkdir /arpit/deployments
+COPY deployments/* /arpit/deployments
 COPY entrypoint.sh /arpit/
 
 RUN wget -O geckodriver.tar.gz \
