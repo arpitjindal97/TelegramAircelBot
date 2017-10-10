@@ -12,12 +12,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<httpcompontents.version>4.5.3</httpcompontents.version>
 		<telegrambots.version>3.3</telegrambots.version>
-		<json.version>20170516</json.version>
-		<commonsio.version>2.5</commonsio.version>
 		<selenium.java.version>3.6.0</selenium.java.version>
-		<jackson.core.version>2.9.0</jackson.core.version>
 		<slf4j.log4j12.version>1.8.0-alpha2</slf4j.log4j12.version>
 		<maven.compiler.plugin>3.6.2</maven.compiler.plugin>
 		<maven.clean.plugin>3.0.0</maven.clean.plugin>
@@ -32,32 +28,7 @@
 			<artifactId>telegrambots</artifactId>
 			<version>${telegrambots.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>${json.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commonsio.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>${httpcompontents.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpmime</artifactId>
-			<version>${httpcompontents.version}</version>
-		</dependency>
 
-		<dependency>
-				<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>${jackson.core.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>

@@ -68,9 +68,9 @@ public class Amt
                     type(Database.amt_password.charAt(i));
                 }
 
-                //Thread.sleep(10000);
+                Thread.sleep(1000);
                 doType(VK_ENTER);
-                Thread.sleep(200);
+                Thread.sleep(1000);
 
             } catch (Exception e)
             {
@@ -78,6 +78,7 @@ public class Amt
             }
             log.info("Log in button clicked");
 
+            //driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
             driver.switchTo().defaultContent();
 
             try
@@ -564,4 +565,5 @@ public class Amt
         doType(keyCodes, offset + 1, length - 1);
         robot.keyRelease(keyCodes[offset]);
     }
+
 }
